@@ -44,12 +44,7 @@ app.get("/api/youtube-videos", async (req, res) => {
 });
 
 // For local development
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-// Export for Vercel serverless deployment
-module.exports = app;
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
