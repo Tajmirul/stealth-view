@@ -1,0 +1,24 @@
+.add-to-blocker-button-parent .add-to-blocker-button {
+    display: inline-flex;
+    justify-content: center;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    height: 28px;
+    width: 28px;
+    border-radius: 4px;
+    background: white;
+    opacity: 0;
+    z-index: 2;
+}
+
+.add-to-blocker-button-parent:hover .add-to-blocker-button {
+    opacity: 1;
+}
+
+ytd-video-preview .add-to-blocker-button {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: 2;
+}
