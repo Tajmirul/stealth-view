@@ -1,6 +1,7 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
+const path = require('path');
 
 require("dotenv").config();
 
@@ -9,6 +10,8 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // YouTube video info endpoint
 app.get("/api/youtube-videos", async (req, res) => {
@@ -41,6 +44,19 @@ app.get("/api/youtube-videos", async (req, res) => {
       message: error.message,
     });
   }
+});
+
+app.get('/update', (req, res) => {
+  // this endpoint will return an xml file for extension update
+  res.set('Content-Type', 'application/xml');
+  res.send(`
+    <?xml version="1.0" encoding="UTF-8"?>
+    <gupdate xmlns="http://www.google.com/update2/updates" protocol="2.0">
+      <app appid="${process.env.EXTENSION_ID}">
+        <updatecheck codebase="${process.env.EXTENSION_CODEBASE_URL}" version="${process.env.EXTENSION_VERSION}" />
+      </app>
+    </gupdate>
+  `);
 });
 
 // For local development
