@@ -8,6 +8,7 @@ export default defineConfig({
     description: "Skip or bypass youtube ads.",
     version: "1.0.0",
     permissions: ["tabs", "storage"],
+    update_url: `${process.env.VITE_BACKEND_URL}/update`,
 
     content_scripts: [
       {
