@@ -6,7 +6,8 @@ import { Storage } from "@/types";
 const App = () => {
   const [settings, setSettings] = useState<Record<string, boolean>>({
     isEnabled: true,
-    isAutoSkipEnabled: true,
+    isAutoSkipEnabled: false,
+    isSVPlaylistEnabled: true,
   });
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const App = () => {
       setSettings({
         isEnabled: settings.isEnabled ?? true,
         isSVPlaylistEnabled: settings.isSVPlaylistEnabled ?? true,
-        isAutoSkipEnabled: settings.isAutoSkipEnabled ?? true,
+        isAutoSkipEnabled: settings.isAutoSkipEnabled ?? false,
       });
     };
 

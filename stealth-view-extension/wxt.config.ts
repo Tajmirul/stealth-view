@@ -5,10 +5,9 @@ export default defineConfig({
   modules: ["@wxt-dev/module-react"],
   manifest: {
     name: "StealthView",
-    description: "Skip or bypass youtube ads.",
-    version: "1.0.0",
+    description: "Bypass youtube ads.",
+    version: "1.0.1",
     permissions: ["tabs", "storage"],
-    update_url: `${process.env.VITE_BACKEND_URL}/update`,
 
     content_scripts: [
       {

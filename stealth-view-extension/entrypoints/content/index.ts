@@ -175,7 +175,7 @@ const addSvToPage = async (url: URL) => {
     Storage.IS_AUTO_SKIP_ENABLED,
     Storage.IS_SV_PLAYLIST_ENABLED,
   ])) as ISettings;
-  const { isAutoSkipEnabled = true, isSVPlaylistEnabled = true } = settings;
+  const { isAutoSkipEnabled = false, isSVPlaylistEnabled = true } = settings;
 
   if (pathname === "/watch") {
     if (isAutoSkipEnabled) {
@@ -184,8 +184,10 @@ const addSvToPage = async (url: URL) => {
     }
 
     if (isSVPlaylistEnabled) {
-      await addSvToVideoPlayer();
-      setTimeout(addSvToVideoPlayerThumbnail, 2000);
+      setTimeout(async () => {
+        await addSvToVideoPlayer();
+        addSvToVideoPlayerThumbnail();
+      }, 2000);
     }
   }
 
