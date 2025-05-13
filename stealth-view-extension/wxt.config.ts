@@ -7,7 +7,7 @@ export default defineConfig({
     name: "StealthView",
     description: "Bypass youtube ads.",
     version: "1.0.1",
-    permissions: ["tabs", "storage"],
+    permissions: ["storage"],
 
     content_scripts: [
       {
